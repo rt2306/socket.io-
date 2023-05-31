@@ -11,9 +11,17 @@
     <script  >
 
 const socket = io(); // Connect to the Socket.io server
-socket.on('message',function(data){
-    alert(data)
-})
+// socket.on('message',function(data){   //socket inbuild
+//     alert(data)
+// })
+
+
+// socket.on('mycustomCode',function(data){   // get message from server side with self made 
+//     alert(data.info)
+// })
+
+socket.emit('mycustom_message_from_client_side','Hi Iam ROHIT THAKUR form client side');    // send messgae fron client side to server side
+
     </script>
   
 </body>

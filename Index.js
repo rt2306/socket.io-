@@ -32,12 +32,18 @@ const io = new Server(server);
 
 io.on('connection',function(socket){   // io.on use to open socket and connection is use toh establisj connection in socket.io
     console.log(`A user connected`);
-    setTimeout(()=>{
+    // setTimeout(()=>{
 
-        socket.send('It is a pre build function send of socket io',function(){
-            console.log("Message send successfully");
-        })
-    },3000)
+        // socket.send('It is a pre build function send of socket io',function(){
+        //     console.log("Message send successfully");
+        // })
+
+        // socket.emit('mycustomCode',{info:"this is my custom emit message"});   //emit or send messgae from server to client side
+    // },3000)
+
+    socket.on('mycustom_message_from_client_side',function(data){
+        console.log(data);
+    })
     socket.on('disconnect',function(){   // disconnect is to dissconnect user from socket.io
         console.log(`A user disconnected`)
     })
