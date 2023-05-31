@@ -30,9 +30,15 @@ app.get('/',function(req,res){
 const server = http.createServer(app);
 const io = new Server(server);
 
-io.on('connection',function(socket){
+io.on('connection',function(socket){   // io.on use to open socket and connection is use toh establisj connection in socket.io
     console.log(`A user connected`);
-    socket.on('disconnect',function(){
+    setTimeout(()=>{
+
+        socket.send('It is a pre build function send of socket io',function(){
+            console.log("Message send successfully");
+        })
+    },3000)
+    socket.on('disconnect',function(){   // disconnect is to dissconnect user from socket.io
         console.log(`A user disconnected`)
     })
 })

@@ -11,6 +11,9 @@
     <script  >
 
 const socket = io(); // Connect to the Socket.io server
+socket.on('message',function(data){
+    alert(data)
+})
     </script>
   
 </body>
