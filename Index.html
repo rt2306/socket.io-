@@ -10,29 +10,51 @@
     <p> Hello world </p>
     <script  >
 
-const socket = io(); // Connect to the Socket.io server
+// first step
+// const socket = io(); // Connect to the Socket.io server
 // socket.on('message',function(data){   //socket inbuild function for send message
 //     alert(data)
 // })
 
+//second step   
 
+// const socket = io(); // Connect to the Socket.io server 
 // socket.on('mycustomCode',function(data){   // get message from server side with self made 
 //     alert(data.info)
-// })
+// }) 
+ 
 
-// socket.on('broadcast',function(data){  //use to show user connected to all users
+//third step
+// const socket = io(); // Connect to the Socket.io server 
+// // socket.emit('mycustom_message_from_client_side','Hi Iam ROHIT THAKUR form client side');    // send messgae fron client side to server side
+
+
+
+// forth step
+// const socket = io(); // Connect to the Socket.io server
+// // socket.on('broadcast',function(data){  //use to show user connected to all users
+// //     document.body.innerHTML=''
+// //     document.write(data.message);
+// // })
+ 
+
+// fifth step 
+// const socket = io(); // Connect to the Socket.io server 
+
+// socket.on('newuserconnected',function(data){  //use to show user connected to all users
 //     document.body.innerHTML=''
 //     document.write(data.message);
-// })
+// }) 
 
 
-socket.on('newuserconnected',function(data){  //use to show user connected to all users
+
+//sixth step   //test event calls
+const socket = io('/custom-namespace'); // Connect to the Socket.io server
+socket.on('testevent_with_namespace',function(data){  
     document.body.innerHTML=''
-    document.write(data.message);
+    document.write(data);
 })
-
-// socket.emit('mycustom_message_from_client_side','Hi Iam ROHIT THAKUR form client side');    // send messgae fron client side to server side
-
+ 
     </script>
   
 </body>
