@@ -20,7 +20,13 @@ const socket = io(); // Connect to the Socket.io server
 //     alert(data.info)
 // })
 
-socket.on('broadcast',function(data){  //use to show user connected
+// socket.on('broadcast',function(data){  //use to show user connected to all users
+//     document.body.innerHTML=''
+//     document.write(data.message);
+// })
+
+
+socket.on('newuserconnected',function(data){  //use to show user connected to all users
     document.body.innerHTML=''
     document.write(data.message);
 })

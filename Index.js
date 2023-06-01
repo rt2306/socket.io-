@@ -34,8 +34,13 @@ var users = 0 ;     //for broadcasting to show how many users connected
 io.on('connection',function(socket){   // io.on use to open socket and connection is use toh establish connection in socket.io
     console.log(`A user connected`);
     users++;
-    io.sockets.emit('broadcast',{message:users + 'users connected'})
-    // setTimeout(()=>{
+    // io.sockets.emit('broadcast',{message:users + 'users connected'})   //show to all users connected
+
+socket.emit('newuserconnected',{message:'Hi welcome to Rohit World'})  //only show to new users
+
+
+socket.broadcast.emit('newuserconnected',{message:users +' Users Connected' });  // show to connected users previous
+// setTimeout(()=>{
 
     //     socket.send('It is a pre build function send of socket io',function(){
     //         console.log("Message send successfully");
@@ -47,11 +52,14 @@ io.on('connection',function(socket){   // io.on use to open socket and connectio
     // socket.on('mycustom_message_from_client_side',function(data){
     //     console.log(data);
     // })
-    socket.on('disconnect',function(){   // disconnect is to dissconnect user from socket.io
-        console.log(`A user disconnected`)
-        users--;
-        io.sockets.emit('broadcast',{message:users + 'users disconnected'})
-    })
+  
+socket.broadcast.emit('newuserconnected',{message:users +' Users Disconnected' });
+  
+    // socket.on('disconnect',function(){   // disconnect is to dissconnect user from socket.io show to all users
+    //     console.log(`A user disconnected`)
+    //     users--;
+    //     io.sockets.emit('broadcast',{message:users + 'users disconnected'})
+    // })
 })
 
 server.listen(port,function(){
