@@ -30,22 +30,27 @@ app.get('/',function(req,res){
 const server = http.createServer(app);
 const io = new Server(server);
 
-io.on('connection',function(socket){   // io.on use to open socket and connection is use toh establisj connection in socket.io
+var users = 0 ;     //for broadcasting to show how many users connected
+io.on('connection',function(socket){   // io.on use to open socket and connection is use toh establish connection in socket.io
     console.log(`A user connected`);
+    users++;
+    io.sockets.emit('broadcast',{message:users + 'users connected'})
     // setTimeout(()=>{
 
-        // socket.send('It is a pre build function send of socket io',function(){
-        //     console.log("Message send successfully");
-        // })
+    //     socket.send('It is a pre build function send of socket io',function(){
+    //         console.log("Message send successfully");
+    //     })
 
-        // socket.emit('mycustomCode',{info:"this is my custom emit message"});   //emit or send messgae from server to client side
+    //     socket.emit('mycustomCode',{info:"this is my custom emit message"});   //emit or send messgae from server to client side
     // },3000)
 
-    socket.on('mycustom_message_from_client_side',function(data){
-        console.log(data);
-    })
+    // socket.on('mycustom_message_from_client_side',function(data){
+    //     console.log(data);
+    // })
     socket.on('disconnect',function(){   // disconnect is to dissconnect user from socket.io
         console.log(`A user disconnected`)
+        users--;
+        io.sockets.emit('broadcast',{message:users + 'users disconnected'})
     })
 })
 
