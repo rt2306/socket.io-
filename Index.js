@@ -156,9 +156,6 @@ custom.on('connection', function (socket) {   // io.on use to open socket and co
     })
 })
 
-
-
-
 server.listen(port, function () {
     console.log(`YOUR APP IS LISTEN ON http://localhost:${port}`);
 })
