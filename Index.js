@@ -145,16 +145,67 @@ const io = new Server(server);
 
 
 //seventh step  how to create namespace events
-var custom = io.of('/custom-namespace');
-custom.on('connection', function (socket) {   // io.on use to open socket and connection is use toh establish connection in socket.io     
-    console.log(`A user connected`);
+// var custom = io.of('/custom-namespace');
+// custom.on('connection', function (socket) {   // io.on use to open socket and connection is use toh establish connection in socket.io     
+//     console.log(`A user connected`);
 
-    custom.emit('testevent_with_namespace', 'Rohit Event calls')
+//     custom.emit('testevent_with_namespace', 'Rohit Event calls')
 
-    socket.on('disconnect', function () {   // disconnect is to dissconnect user from socket.io show to all users    
+//     socket.on('disconnect', function () {   // disconnect is to dissconnect user from socket.io show to all users    
 
-    })
-})
+//     })
+// })
+
+
+//Eight create room single room 
+
+// var roomno = 1 ; 
+// io.on('connection',function(socket){
+//     console.log('web socket connected');
+
+//     socket.join("room-"+roomno);
+
+//     io.sockets.in("room-"+roomno).emit('connectedRoom',"You are connected to room no."+roomno); 
+
+//     socket.on('disconnect',function(){
+//         console.log('web socket disconnecrt');
+//     })
+// })
+
+//Ninth Create Multiple rooms
+
+// var roomno = 1 ; 
+// var full = 0 ;
+// io.on('connection',function(socket){
+//     console.log('web socket connected');
+
+//     socket.join("room-"+roomno);
+
+//     io.sockets.in("room-"+roomno).emit('connectedRoom',"You are connected to room no."+roomno); 
+
+//     full++
+
+//     if(full>=2){   // only two pairs of room available like room hai 1 hai only 2 set then room 2 hai only 2 set and so onnn......
+//         full=0;
+//         roomno++;
+//     }
+//     socket.on('disconnect',function(){
+//         console.log('web socket disconnecrt');
+//     })
+// })
+
+//Tenth Error handling in socket.io
+
+// io.on('connection',function(socket){
+//     console.log("connected");
+
+//     socket.on('disconnect',function(){
+//         console.log('disconnected');
+//     })
+// })
+
+
+
 
 server.listen(port, function () {
     console.log(`YOUR APP IS LISTEN ON http://localhost:${port}`);

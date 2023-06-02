@@ -49,12 +49,26 @@
 
 
 //sixth step   //test event calls
-const socket = io('/custom-namespace'); // Connect to the Socket.io server
-socket.on('testevent_with_namespace',function(data){  
-    document.body.innerHTML=''
-    document.write(data);
-})
+// const socket = io('/custom-namespace'); // Connect to the Socket.io server
+// socket.on('testevent_with_namespace',function(data){  
+//     document.body.innerHTML=''
+//     document.write(data);
+// })
  
+//Seventh step
+
+// const socket = io();
+// socket.on('connectedRoom',function(data){
+//     document.body.innerHTML=''
+//     document.write(data)
+// })
+
+//eight step error handling
+
+// const socket  = io()
+// socket.on('connection-failed',function(){
+//     alter('sorry connection failed')
+// })
     </script>
   
 </body>
